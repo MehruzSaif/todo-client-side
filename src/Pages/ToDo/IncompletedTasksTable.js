@@ -11,6 +11,20 @@ const IncompletedTasksTable = () => {
             .then(data => setTasks(data))
     }, []);
 
+    const taskCompleted = (e, task) => {
+        fetch(`http://localhost:5000/task-complete/${task._id}`, {
+            method: "PATCH",
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data);
+                if (data.acknowledged == true && data.modifiedCount == 1) {
+                    //navigate to Inventory List
+                    window.location.reload(true);
+                }
+            });
+    };
+
 
     return (
         <div>
@@ -32,7 +46,9 @@ const IncompletedTasksTable = () => {
                                 <tr>
                                     <th>
                                         <label>
-                                            <input type="checkbox" class="checkbox" />
+                                            <input onChange={(e) => {
+                                                taskCompleted(e, task);
+                                            }} type="checkbox" class="checkbox" />
                                         </label>
                                     </th>
                                     <td>
