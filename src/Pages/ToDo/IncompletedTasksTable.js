@@ -1,8 +1,16 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const IncompletedTasksTable = () => {
 
     const [tasks, setTasks] = useState([]);
+
+    const [response, setResponse] = useState({});
+
+    if (response.acknowledged == true && response.modifiedCount == 1) {
+        window.location.reload(true);
+    }
+
 
     useEffect(() => {
         fetch(`http://localhost:5000/tasks`)
@@ -23,6 +31,24 @@ const IncompletedTasksTable = () => {
                     window.location.reload(true);
                 }
             });
+    };
+
+    const handleClick = (task) => {
+        // console.log(task.taskName);
+        let value = prompt("Edit your task", task.taskName);
+        console.log("value: ", value);
+
+        const requestOptions = {
+            method: "PATCH",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                taskName: value,
+            }),
+        };
+
+        fetch(`http://localhost:5000/edit-task/${task._id}`, requestOptions)
+            .then((res) => res.json())
+            .then((data) => setResponse(data));
     };
 
 
@@ -60,23 +86,15 @@ const IncompletedTasksTable = () => {
                                     </td>
 
                                     <td>
-                                        <label for="my-modal-3" class="btn modal-button">Edit</label>
+                                        <a onClick={() => handleClick(task)} className="btn">
+                                            Edit
+                                        </a>
                                     </td>
                                 </tr>
                             ))
                         }
 
                     </tbody>
-                    <input type="checkbox" id="my-modal-3" class="modal-toggle" />
-                    <div class="modal">
-                        <div class="modal-box relative">
-                            <label for="my-modal-3" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                            <h3 class="text-lg font-bold">Edit your task</h3>
-                            <input type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs" />
-                            <button class="btn btn-success">Success</button>
-                        </div>
-
-                    </div>
 
                 </table>
             </div>
