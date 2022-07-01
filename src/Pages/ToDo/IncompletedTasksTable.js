@@ -33,7 +33,6 @@ const IncompletedTasksTable = () => {
 
                     <thead>
                         <tr>
-
                             <th>Check</th>
                             <th>Task</th>
                             <th>Action</th>
