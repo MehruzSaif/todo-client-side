@@ -12,7 +12,7 @@ const Home = () => {
                 taskName: e.target.value,
             };
 
-            const url = `http://localhost:5000/add-task`;
+            const url = `https://tim-inukshuk-72807.herokuapp.com/add-task`;
             fetch(url, {
                 method: "POST",
                 headers: {

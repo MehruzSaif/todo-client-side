@@ -13,14 +13,14 @@ const IncompletedTasksTable = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/tasks`)
+        fetch(`https://tim-inukshuk-72807.herokuapp.com/tasks`)
 
             .then(res => res.json())
             .then(data => setTasks(data))
     }, []);
 
     const taskCompleted = (e, task) => {
-        fetch(`http://localhost:5000/task-complete/${task._id}`, {
+        fetch(`https://tim-inukshuk-72807.herokuapp.com/task-complete/${task._id}`, {
             method: "PATCH",
         })
             .then((res) => res.json())
@@ -46,7 +46,7 @@ const IncompletedTasksTable = () => {
             }),
         };
 
-        fetch(`http://localhost:5000/edit-task/${task._id}`, requestOptions)
+        fetch(`https://tim-inukshuk-72807.herokuapp.com/edit-task/${task._id}`, requestOptions)
             .then((res) => res.json())
             .then((data) => setResponse(data));
     };
