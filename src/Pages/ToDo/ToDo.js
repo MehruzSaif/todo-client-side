@@ -1,9 +1,11 @@
 import React from 'react';
+import IncompletedTasksTable from './IncompletedTasksTable';
 
 const ToDo = () => {
     return (
         <div>
-            This is To do
+            <h1>These are incomplete tasks</h1>
+            <IncompletedTasksTable></IncompletedTasksTable>
         </div>
     );
 };
