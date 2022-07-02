@@ -36,7 +36,7 @@ const Home = () => {
 
     return (
         <div>
-            <h2 className=''>Add New Task</h2>
+            <h2 className='text-center font-bold mt-5 mb-8 text-4xl text-secondary'>Add New Task</h2>
             <section className=" flex ml-5 mb-3 justify-center">
                 <div class="form-control w-full max-w-xs">
                     <input
