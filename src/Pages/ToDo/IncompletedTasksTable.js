@@ -59,7 +59,7 @@ const IncompletedTasksTable = () => {
 
                     <thead>
                         <tr>
-                            <th>Check</th>
+                            <th>Done</th>
                             <th>Task</th>
                             <th>Action</th>
                         </tr>

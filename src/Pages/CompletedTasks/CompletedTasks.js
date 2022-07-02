@@ -20,7 +20,7 @@ const CompletedTasks = () => {
 
                     <thead>
                         <tr>
-                            <th>Check</th>
+                            <th>Done</th>
                             <th>Task</th>
                         </tr>
                     </thead>
