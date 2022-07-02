@@ -42,7 +42,7 @@ const Home = () => {
                     <input
                         onKeyPress={enterKeyPressed}
                         type="text"
-                        placeholder="Add a task"
+                        placeholder="Add a task & Press Enter Button"
                         class="input input-bordered w-full max-w-xs"
                     />
                 </div>
