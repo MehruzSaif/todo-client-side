@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Footer from '../Shared/Footer';
 
 const CompletedTasks = () => {
 
@@ -13,7 +14,7 @@ const CompletedTasks = () => {
 
     return (
         <div>
-            These are Completed Tasks: <br />
+            <h2 className='text-center font-bold mt-5 mb-8 text-4xl text-primary'>These are Completed Tasks:</h2> <br />
             <div class="overflow-x-auto w-full">
                 <table class="table w-full">
 
@@ -53,6 +54,7 @@ const CompletedTasks = () => {
 
                 </table>
             </div>
+            <Footer></Footer>
         </div>
     );
 };

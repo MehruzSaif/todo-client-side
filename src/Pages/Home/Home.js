@@ -1,11 +1,12 @@
 import React from 'react';
+import { toast } from 'react-toastify';
 import ToDo from '../ToDo/ToDo';
 
 const Home = () => {
 
     const enterKeyPressed = (e) => {
         if (e.key == "Enter") {
-            //   e.preventDefault();
+            // e.preventDefault();
             console.log(e.target.value);
 
             const task = {
@@ -24,10 +25,10 @@ const Home = () => {
                 .then((inserted) => {
                     //   console.log(inserted);
                     if (inserted.success) {
-                        window.location.reload(true);
                         alert("Task added successfully");
+                        window.location.reload(true);
                     } else {
-                        alert("Failed to add the task");
+                        toast.error("Failed to add the task");
                     }
                 });
         }
@@ -35,7 +36,8 @@ const Home = () => {
 
     return (
         <div>
-            <section className=" flex ml-5 mb-3 ">
+            <h2 className=''>Add New Task</h2>
+            <section className=" flex ml-5 mb-3 justify-center">
                 <div class="form-control w-full max-w-xs">
                     <input
                         onKeyPress={enterKeyPressed}
@@ -47,6 +49,7 @@ const Home = () => {
             </section>
 
             <ToDo></ToDo>
+
         </div>
     );
 };

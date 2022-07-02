@@ -1,9 +1,9 @@
 import React from 'react';
+import Footer from '../Shared/Footer';
 
 const CompletedTasksTable = () => {
     return (
         <div>
-            These are Completed Tasks: <br />
             <CompletedTasksTable></CompletedTasksTable>
         </div>
     );
